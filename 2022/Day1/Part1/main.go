@@ -1,17 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"sort"
 	"strconv"
 
-	"github.com/joshpdavis/AOC/helpers"
+	helpers "github.com/joshpdavis/AOC/helpers/go"
 )
 
 func main() {
+	fileFlag := flag.String("file", "input.txt", "file to run against")
 
-	items := helpers.ReadFile("input.txt", func(s string) string {
+	items := helpers.ReadFile(*fileFlag, func(s string) string {
 		return s
 	})
 
@@ -40,7 +42,6 @@ func main() {
 	b := sums[len(sums)-2]
 	c := sums[len(sums)-3]
 
-	log.Print(a + b + c)
-	log.Print(a)
+	log.Printf("3 Largest:%v", a+b+c)
 	log.Printf("Largest Sum:%v", max)
 }

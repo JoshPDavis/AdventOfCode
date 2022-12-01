@@ -1,12 +1,15 @@
 package main
 
 import (
-	"github.com/joshpdavis/AOC/helpers"
+	"flag"
+	"github.com/joshpdavis/AOC/helpers/go"
 )
 
 func main() {
 
-	items := helpers.ReadFile("input.txt", func(s string) any {
+	file := flag.String("file", "input.txt", "file to run against")
+
+	items := helpers.ReadFile(*file, func(s string) any {
 		return s
 	})
 
